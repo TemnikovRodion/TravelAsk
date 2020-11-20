@@ -6,7 +6,7 @@ function createHotelsList(data) {
         var listItem =
             `<section class="card">
                 <div class="card_image">
-                    <img src="../img/hotel${item.id}.png">
+                    <img src="img/hotel${item.id}.png">
                 </div>
                 
                 <div class="card_content">
