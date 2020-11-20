@@ -2,11 +2,11 @@
 function createHotelsList(data) {
     $("main").html("");
 
-    $.each(data, function(i, item) {
-        var listItem = 
+    $.each(data, function (i, item) {
+        var listItem =
             `<section class="card">
                 <div class="card_image">
-                    <img src="/img/hotel${item.id}.png">
+                    <img src="../img/hotel${item.id}.png">
                 </div>
                 
                 <div class="card_content">
@@ -48,30 +48,30 @@ function createHotelsList(data) {
 
 // Функция получения блока с звездами
 function getStartList(starsCount) {
-    switch(starsCount) {
-        case 1: 
+    switch (starsCount) {
+        case 1:
             return `<i class="fas fa-star"></i>
                     <span class="card_rating_description">${starsCount} звезда</span>`;
-        
-        case 2: 
+
+        case 2:
             return `<i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <span class="card_rating_description">${starsCount} звезды</span>`;
 
-        case 3: 
+        case 3:
             return `<i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <span class="card_rating_description">${starsCount} звезды</span>`;
 
-        case 4: 
+        case 4:
             return `<i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <span class="card_rating_description">${starsCount} звезды</span>`;
 
-        case 5: 
+        case 5:
             return `<i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -82,13 +82,13 @@ function getStartList(starsCount) {
 } // getStartList
 
 // Функция очистки всех полей фильтров
-function clearFilters (countries, starsList, types, priceSlider) {
+function clearFilters(countries, starsList, types, priceSlider) {
     // Обнуление текста в поле ввода стран
     countries.val("");
 
     // Обнуление всех чекбоксов по звездам
     let listItems = starsList.children("li");
-    $.each(listItems, function(i, item) {
+    $.each(listItems, function (i, item) {
         $(item).children("input").prop("checked", false);
     })
 
