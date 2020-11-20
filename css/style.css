@@ -1,0 +1,385 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+
+@font-face {
+    font-family: KievitPro;
+    src: url(../fonts/KievitPro/KievitPro-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: KievitPro;
+    src: url(../fonts/KievitPro/KievitPro-Bold.ttf);
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    font-weight: bold;
+    font-style: normal;
+}
+
+/*Обертка лэндинга*/
+body {
+    min-height: 100vh;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    font-family: KievitPro;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    font-size: 15px;
+    padding: 56px 330px;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+/*Стилизация блока с фильтрами*/
+.filter_group {
+    width: 300px;
+    background: #FFFFFF;
+    border: 1px solid #F3EFEA;
+    box-sizing: border-box;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+
+.filter_group:last-of-type {
+    margin-bottom: 30px;
+}
+
+/*Стилизация подписи блока с фильтром*/
+.title {
+    font-weight: bold;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    padding: 21px 24px;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+        /*Стилизация кнопки выпадающего списка*/
+        .title i.rotated {
+            transform: rotateX(180deg);
+        }
+
+/*Стилизация скрывающегося блока фильтрации*/
+.filter {
+    display: none;
+    padding: 30px 20px;
+    border-top: 1px solid #F3EFEA;
+}
+
+    .filter.open {
+        display: block;
+    }
+
+/*Стилизация поля ввода текста*/
+.input {
+    display: flex;
+    padding: 0px 15px;
+    height: 40px;
+    font-size: 13px;
+    border: 1.6px solid #D5CDBE;
+    border-radius: 2px;
+    width: 100%;
+}
+
+/*Стилизация списка чекбоксов*/
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+    li:last-child {
+        margin-bottom: 0;
+    }
+
+.checkbox_label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+    .checkbox_label:before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        border: 2px solid #D5CDBE;
+        border-radius: 2px;
+        margin-right: 8px;
+    }
+
+    .checkbox:checked+.checkbox_label:before {
+        content: '\2714';
+        text-align: center;
+        color: #fff;
+        border-color: #ff4641;
+        background: #ff4641;
+    }
+
+/*Стилизация выпадающего списка автозаполнения*/
+.ui-menu-item {
+    font-size: 13px !important;
+    padding: 10px 15px;
+}
+
+    .ui-menu-item:hover {
+        background: #F9F7F2;
+    }
+    
+    .ui-menu-item .ui-state-active {
+        border: none !important;
+        background: none !important;
+        margin: 0 !important;
+    }
+
+/*Стилизация кнопок выбора отелей*/
+.button {
+    border-radius: 50px;
+    background:#F9F7F2;
+    padding: 14px 15px;
+    border: 0;
+    cursor: pointer;
+}
+
+    .button.active {
+        background: #FDE283;
+    }
+
+/*Стилизация слайдера с ценами*/
+#slider {
+    height: 3px;
+    background: #DFDACE;
+}
+
+#tooltip {
+    position: absolute;
+    background: #212121;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 13px;
+    padding: 0 7px;
+    bottom: 25px;
+    right: 5px;
+}
+
+    .ui-state-active {
+        color: #000 !important;
+    }
+
+
+span.ui-slider-handle.ui-corner-all.ui-state-default {
+    background:#FF4641;
+    width: 22px;
+    height: 22px;
+    border: none;
+    border-radius: 50%;
+    top: -10px;
+    cursor: pointer;
+    outline: 0;
+}
+
+span.ui-slider-handle.ui-corner-all.ui-state-default::before {
+    content: '';
+    display: flex;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    z-index: 1;
+    border: 5px solid #FF4641;
+    background:#fff;
+}
+
+div.ui-slider-range.ui-corner-all.ui-widget-header {
+    background-color: #FF4641;
+    height: 3px;
+    border-radius: 3px;
+    top: -1px;
+}
+
+div#slider.ui-slider.ui-corner-all.ui-slider-horizontal.ui-widget.ui-widget.content {
+    background: #DFDACE;
+    border-radius: 2px;
+}
+
+input#countries.input.ui-autocomplete-input {
+    background: #ffff;
+}
+
+.ui-helper-hidden-accessible {
+    background: #F3EFEA;
+}
+
+/*Стилизация блока фильтрации*/
+.filter_remove {
+    padding: 0 60px;
+    display: flex; 
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+    .filter_remove i {
+        transform: rotate(270deg);
+    }
+
+/*Стилизация блока карточки отелей*/
+.card {
+    display: flex;
+    border-bottom: 1px solid #F3EFEA;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    height: fit-content;
+}
+
+    .card:first-child {
+        padding-top: 0;
+    }
+
+/*Стилизация блока изображения отеля*/
+.card_image {
+    border-radius: 2px;
+    width: 280px;
+    height: 290px;
+}
+
+/*Стилизация блока информации отеля*/
+.card_content {
+    width: 385px;
+    padding: 0 13px 0 23px;
+}
+
+/*Стилизация блока местоположения отеля*/
+.card_location {
+    font-size: 13px;
+    color: #515151;
+    margin-bottom: 6px;
+}
+
+/*Стилизация блока названия отеля*/
+.card_name {
+    font-size: 21px;
+    font-weight: bold;
+    color: #000000;
+    
+}
+
+/*Стилизация блока рейтинга отеля по звездам*/
+.card_rating > .fas{
+    color: #FFD037;
+}
+
+/*Стилизация блока рейтинга отеля*/
+.card_rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 500;
+    font-size: 13px;
+    color: #212121;
+    margin: 20px 0 16px 0;
+}
+
+    .card_rating i {
+        padding: 0 2px;
+    }
+
+        .card_rating i:first-child {
+            padding-left: 0;
+        }
+
+/*Стилизация блока описания рейтинга отеля*/
+.card_rating_description {
+    margin: 0 8px;
+    font-weight: bold;
+    padding-bottom: 2px;
+}
+
+/*Стилизация книпки описания отеля*/
+.card_name_description {
+    padding: 0 7px;
+    border: 1px solid #D4D4D4;
+    box-sizing: border-box;
+    border-radius: 2px;
+    color: #515151;
+    background: #fff;
+}
+
+/*Стилизация описания отеля*/
+.card_description {
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+/*Стилизация блока отзыва и цены*/
+.card_review {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #959595;
+}
+
+/*Стилизация блока отзыва*/
+.card_review_rating {
+    background: #F9F7F2;
+    border: 1px solid #F9F7F2;
+    width: 237px;
+    display: flex;
+    justify-content: center;
+    padding: 25px 0;
+}
+
+.last_review {
+    width: 237px;
+    display: flex;
+    justify-content: center;
+    background: #F9F7F2;
+    padding: 25px 21px;
+    font-weight: 500;
+    color: #515151;
+}
+
+i.far.fa-star {
+    margin-right: 9px;
+}
+
+/*Стилизация блока бронирования*/
+.card_price {
+    display: flex;
+    flex-direction: row;
+    color: #000000;
+    font-size: 17px;
+    line-height: 17px;
+    align-items: center;
+}
+
+/*Стилизация кнопки бронирования*/
+.card_reserve {
+    border-radius: 2px;
+    background: #FF4641;
+    color: #fff;
+    padding: 10px;
+    border-color: #FF4641;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
